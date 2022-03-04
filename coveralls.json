@@ -1,0 +1,14 @@
+{
+  "skip_files": [
+    "lib/exrepos.ex",
+    "lib/exrepos/application.ex",
+    "lib/exrepos/mailer.ex",
+    "lib/exrepos/repo.ex",
+    "lib/exrepos_web.ex",
+    "lib/exrepos_web/endpoint.ex",
+    "lib/exrepos_web/gettext.ex",
+    "lib/exrepos_web/telemetry.ex",
+    "lib/exrepos_web/views/error_helpers.ex",
+    "test/support"
+  ]
+}
