@@ -2,15 +2,18 @@ defmodule Exrepos.Github.Client do
   use Tesla
 
   alias Exrepos.Error
-  alias Exrepos.Github.Response
+  alias Exrepos.Github.{Behaviour, Response}
   alias Tesla.Env
 
-  plug Tesla.Middleware.BaseUrl, "https://api.github.com/users/"
+  @behaviour Behaviour
+
   plug Tesla.Middleware.Headers, [{"User-Agent", "ExreposAPI"}]
   plug Tesla.Middleware.JSON
 
-  def get_user_repos(username) do
-    "#{username}/repos"
+  @base_url "https://api.github.com/users/"
+
+  def get_user_repos(url \\ @base_url, username) do
+    "#{url}#{username}/repos"
     |> get()
     |> handle_get()
   end

@@ -10,6 +10,8 @@ import Config
 config :exrepos,
   ecto_repos: [Exrepos.Repo]
 
+config :exrepos, Exrepos.Repos.Search, github_adapter: Exrepos.Github.Client
+
 # Configures the endpoint
 config :exrepos, ExreposWeb.Endpoint,
   url: [host: "localhost"],
