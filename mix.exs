@@ -56,7 +56,8 @@ defmodule Exrepos.MixProject do
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
       {:bypass, "~> 2.1", only: :test},
       {:excoveralls, "~> 0.10", only: :test},
-      {:mox, "~> 1.0", only: :test}
+      {:mox, "~> 1.0", only: :test},
+      {:bcrypt_elixir, "~> 3.0"}
     ]
   end
 

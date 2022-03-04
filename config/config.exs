@@ -12,6 +12,9 @@ config :exrepos,
 
 config :exrepos, Exrepos.Repos.Search, github_adapter: Exrepos.Github.Client
 
+config :exrepos, Exrepos.Repo,
+  migration_primary_key: [type: :binary_id]
+
 # Configures the endpoint
 config :exrepos, ExreposWeb.Endpoint,
   url: [host: "localhost"],
