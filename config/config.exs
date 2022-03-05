@@ -12,6 +12,17 @@ config :exrepos,
 
 config :exrepos, Exrepos.Repos.Search, github_adapter: Exrepos.Github.Client
 
+config :exrepos, Exrepos.Repo,
+  migration_primary_key: [type: :binary_id]
+
+config :exrepos, Exrepos.Auth.Guardian,
+       issuer: "exrepos",
+       secret_key: "x9Z7U7daNvdlRQwVXMqUJWpgC5g+hmD3dYDWlenlJQpvn9PFVt48tjlwVVNmJ29n"
+
+config :exrepos, Exrepos.Auth.Pipeline,
+  module: Exrepos.Auth.Guardian,
+  error_handler: Exrepos.Auth.ErrorHandler
+
 # Configures the endpoint
 config :exrepos, ExreposWeb.Endpoint,
   url: [host: "localhost"],

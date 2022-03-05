@@ -5,10 +5,23 @@ defmodule ExreposWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :auth do
+    plug Exrepos.Auth.Pipeline
+
+  end
+
+  scope "/api", ExreposWeb do
+    pipe_through [:api, :auth]
+
+    get "/repos/:username", ReposController, :search
+  end
+
   scope "/api", ExreposWeb do
     pipe_through :api
 
-    get "/repos/:username", ReposController, :search
+    post "/users", UsersController, :create
+
+    post "/auth/login", AuthController, :login
   end
 
   # Enables LiveDashboard only for development
