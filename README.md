@@ -1,4 +1,7 @@
-# Exrepos
+# Exrepos API
+
+# Introduction
+This API was made tu fulfill 3 challenges from the Elixir track on Rocketseats Ignite course.
 
 To start your Phoenix server:
 
@@ -17,4 +20,3 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * Docs: https://hexdocs.pm/phoenix
   * Forum: https://elixirforum.com/c/phoenix-forum
   * Source: https://github.com/phoenixframework/phoenix
-# elixir_exrepos_api
