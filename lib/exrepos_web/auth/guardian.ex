@@ -18,7 +18,7 @@ defmodule Exrepos.Auth.Guardian do
   def authenticate(%{"id" => user_id, "password" => password}) do
     with {:ok, %User{password_hash: hash} = user} <- UsersGet.by_id(user_id),
          true <- Bcrypt.verify_pass(password, hash),
-         {:ok, token, _claims} <- encode_and_sign(user) do
+         {:ok, token, _claims} <- encode_and_sign(user, %{}, ttl: {1, :minute}) do
       {:ok, token}
     else
       false -> {:error, Error.build(:unauthorized, "Please verify your credentials")}
